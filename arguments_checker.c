@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 14:26:00 by enja              #+#    #+#             */
-/*   Updated: 2022/06/22 04:15:20 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/22 04:49:28 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	*arguments_scanner(int ac, char **ar)
 
 void	check_for_sorted(int *bloc, int ac)
 {
-	int idx;
+	int	idx;
 	int	adx;
 
 	idx = 0;
