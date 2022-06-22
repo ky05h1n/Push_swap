@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 14:26:00 by enja              #+#    #+#             */
-/*   Updated: 2022/06/22 00:24:38 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/22 04:15:20 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,22 @@ int	*arguments_scanner(int ac, char **ar)
 		ptr->arr[ptr->m++] = my_atoi(ar[ptr->f++]);
 		ptr->r = ptr->f + 1;
 	}
-	ptr->arr[ptr->m] = '\0';
 	return (ptr->arr);
 }
 
+void	check_for_sorted(int *bloc, int ac)
+{
+	int idx;
+	int	adx;
+
+	idx = 0;
+	adx = 1;
+	while (adx < ac - 1)
+	{
+		if (bloc[idx] < bloc[adx++])
+			idx++;
+		else
+			return ;
+	}
+	msg_sort();
+}
