@@ -21,6 +21,7 @@ fclean :
 re : fclean all
 
 push :
+	rm -rf .DS_Store
 	git add .
 	git status
 	git commit -m "Push_swap"
