@@ -6,38 +6,11 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 14:26:00 by enja              #+#    #+#             */
-/*   Updated: 2022/06/22 04:49:28 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/23 03:21:01 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	my_atoi(char *str)
-{
-	int		sign;
-	long	value;
-	int		range;
-
-	sign = 1;
-	value = 0;
-	range = 0;
-	while ((*str == ' ' || *str == '\f') || (*str == '\n' || *str == '\r')
-		|| (*str == '\t' || *str == '\v'))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		++str;
-	while (*str >= '0' && *str <= '9')
-	{
-		value = value * 10 + (*str - '0');
-		str++;
-		range++;
-	}
-	if (value * sign > 2147483647 || value * sign < -2147483648)
-		error_msg();
-	return (value * sign);
-}
 
 int	string_comp_no_digits(char *str)
 {
@@ -52,7 +25,7 @@ int	string_comp_no_digits(char *str)
 	{
 		if (ndx == 0 && (str[ndx] == '-' || str[ndx] == '+'))
 			ndx++;
-		else if ((str[ndx] >= '0' && str[ndx] <= '9'))
+		if ((str[ndx] >= '0' && str[ndx] <= '9'))
 			ndx++;
 		else
 			return (-1);
@@ -116,5 +89,5 @@ void	check_for_sorted(int *bloc, int ac)
 		else
 			return ;
 	}
-	msg_sort();
+	exit(1);
 }

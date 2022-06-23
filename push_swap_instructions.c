@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_instructions.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/06/23 07:52:58 by enja             ###   ########.fr       */
+/*   Created: 2022/06/23 03:59:31 by enja              #+#    #+#             */
+/*   Updated: 2022/06/23 07:52:24 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
-{
-	int	*bloc;
-	int	a;
+// void	stack_swap1(int *bloc_stack, int ac)
+// {
+// 	t_node	*stack;
+// 	t_node	*head;
+// 	int		temp;
+// 	int		idx;
 
-	(void)ac;
-	(void)av;
-	a = 0;
-	if (ac > 1)
-	{
-		bloc = arguments_scanner(ac, av);
-		check_for_sorted(bloc, ac);
-		// if (ac == 2)
-		// 	stck_swap1(bloc, ac);
-	}
-	return (0);
-}
+// 	stack = malloc(sizeof(t_node));
+// 	head = stack;
+// 	while (idx < ac - 1)
+// 	{
+// 		head->data = bloc_stack[idx++];
+// 		stack = malloc(sizeof(t_node));
+// 		head->next = stack;
+// 	}
+// }
