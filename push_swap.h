@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/06/23 07:52:42 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/24 04:54:25 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ typedef struct t_data{
 	int	m;
 }	t_data;
 
+typedef struct t_lmk{
+	int	idx;
+	int	ndx;
+	int	**bloc2;
+}t_lmk;
 // typedef struct t_node{
 // 	int		data;
 // 	int		index;
@@ -36,5 +41,9 @@ int		string_comp_no_digits(char *str);
 int		my_atoi(char *str);
 int		string_len(char *str);
 void	check_for_sorted(int *bloc, int ac);
-// void	stack_swap1(int *bloc_stack, int ac);
+void	stack_swap_sa(int **bloc_stack);
+int		**stack_swap_ra(int **bloc_stack);
+int		tdm_arr_len(int **arr);
+int		**arg_arr(int *bloc, int ac);
+void	bloc_free(int **bloc);
 #endif
