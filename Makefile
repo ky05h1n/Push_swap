@@ -7,7 +7,7 @@ SRC = push_swap.c arguments_checker.c push_swap_utils.c push_swap_instructions.c
 all : $(NAME)
 
 $(NAME): $(SRC)
-	@gcc $(SRC) -Wall -Werror -Wextra -o $(NAME)
+	@gcc $(SRC) -Wall -Werror -Wextra -g -fsanitize=address -o $(NAME)
 	@echo "\033[1;32m Push_Swap is ready !"
 
 clean :
@@ -21,7 +21,7 @@ fclean :
 re : fclean all
 
 push :
-	rm -rf .DS_Store
+	rm -rf .DS_Store push_swap.dSYM
 	git add .
 	git status
 	git commit -m "Push_swap"
