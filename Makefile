@@ -21,6 +21,7 @@ fclean :
 re : fclean all
 
 push :
+	rm -f $(NAME)
 	rm -rf .DS_Store push_swap.dSYM
 	git add .
 	git status
