@@ -6,41 +6,40 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 03:59:31 by enja              #+#    #+#             */
-/*   Updated: 2022/06/26 07:44:37 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/27 09:13:39 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	**take_push(int **stack1, int **stack2)
+int	**stack_take_push(int **stack1, int **stack2)
 {
-	int	**new_stack;
-	int	size;
-	int	idx;
-	int	ndx;
+	t_data2	dt;
+	t_data2	*ptr;
 
-	ndx = 0;
-	idx = 0;
-	size = tdm_arr_len(stack1) + 2;
-	new_stack = malloc(size * sizeof(int *));
-	new_stack[size - 1] = NULL;
-	new_stack[idx] = stack2[idx];
+	ptr = &dt;
+	ptr->ndx = 0;
+	ptr->idx = 0;
+	ptr->size = tdm_arr_len(stack1) + 2;
+	ptr->new_stack = malloc(ptr->size * sizeof(int *));
+	ptr->new_stack[ptr->size - 1] = NULL;
+	ptr->new_stack[ptr->idx] = stack2[ptr->idx];
 	if (tdm_arr_len(stack1) == 0)
 	{
 		free(stack1);
-		stack1 = new_stack;
+		stack1 = ptr->new_stack;
 		return (stack1);
 	}
-	idx++;
-	while (idx < size - 1)
-		new_stack[idx++] = stack1[ndx++];
-	new_stack[idx] = NULL;
+	ptr->idx++;
+	while (ptr->idx < ptr->size - 1)
+		ptr->new_stack[ptr->idx++] = stack1[ptr->ndx++];
+	ptr->new_stack[ptr->idx] = NULL;
 	free(stack1);
-	stack1 = new_stack;
+	stack1 = ptr->new_stack;
 	return (stack1);
 }
 
-int	**pop_stack(int **stack)
+int	**stack_pop(int **stack, int sign)
 {
 	int	a;
 	int	size;
@@ -62,10 +61,11 @@ int	**pop_stack(int **stack)
 		stack_pop[a++] = stack[m++];
 	free(stack);
 	stack = stack_pop;
+	print_instractions(sign);
 	return (stack);
 }
 
-void	stack_swap(int **stack)
+void	stack_swap(int **stack, int sign)
 {
 	int		idx;
 	int		*ptr;
@@ -74,9 +74,10 @@ void	stack_swap(int **stack)
 	ptr = stack[idx];
 	stack[idx] = stack[idx + 1];
 	stack[idx + 1] = ptr;
+	print_instractions(sign);
 }
 
-int	**stack_rotate(int **stack)
+int	**stack_rotate(int **stack, int sign)
 {
 	int		**handl_stack;
 	int		idx;
@@ -96,10 +97,11 @@ int	**stack_rotate(int **stack)
 	handl_stack[idx - 1] = stack[0];
 	free(stack);
 	stack = handl_stack;
+	print_instractions(sign);
 	return (stack);
 }
 
-int	**reverse_rotate(int	**stack)
+int	**stack_reverse_rotate(int	**stack, int sign)
 {
 	int		**handl_stack;
 	int		idx;
@@ -120,5 +122,6 @@ int	**reverse_rotate(int	**stack)
 	handl_stack[0] = stack[idx - 1];
 	free(stack);
 	stack = handl_stack;
+	print_instractions(sign);
 	return (stack);
 }

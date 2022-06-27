@@ -6,28 +6,18 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/06/26 07:49:40 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/27 09:21:29 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	bloc_free(int **bloc)
-{
-	int	a;
-
-	a = 0;
-	while (bloc[a] != NULL)
-		free(bloc[a++]);
-	free(bloc);
-}
 
 int	main(int ac, char **av)
 {
 	int	*bloc;
 	int	**stack_a;
 	int	**stack_b;
-	int	n = 0;
+	// int	n = 0;
 
 	(void)stack_b;
 	if (ac > 1)
@@ -37,32 +27,37 @@ int	main(int ac, char **av)
 		stack_a = arg_arr(bloc, ac);
 		stack_b = malloc(1 * sizeof(int *));
 		stack_b[0] = NULL;
-		// if (ac == 3)
-		// // stack_a = stack_rotate(stack_a, 1);
-		while (stack_a[n] != NULL)
-		{
-			stack_b = take_push(stack_b, stack_a);
-			stack_a = pop_stack(stack_a);
-		}
-		n = 0;
-		while (stack_b[n] != NULL)
-		{
-			printf("%d ", stack_b[n][0]);
-			n++;
-		}
-		n = 0;
-		printf("\n");
-		while (stack_b[n] != NULL)
-		{
-			stack_a = take_push(stack_a, stack_b);
-			stack_b = pop_stack(stack_b);
-		}
-		n = 0;
-		while (stack_a[n] != NULL)
-		{
-			printf("%d ", stack_a[n][0]);
-			n++;
-		}
+		if (ac == 3)
+			stack_swap(stack_a, 0);
+		if (ac == 4)
+			stack_a = sort_action_3_num(stack_a);
+		if (ac == 6)
+			stack_a = sort_action_5_num(stack_a, stack_b);
+	////////////////////////////////////// --for test---
+		// while (stack_a[n] != NULL)
+		// {
+		// 	stack_b = stack_push(stack_b, stack_a);
+		// 	stack_a = stack_pop(stack_a, 5);
+		// }
+		// n = 0;
+		// while (stack_b[n] != NULL)
+		// {
+		// 	printf("%d ", stack_b[n][0]);
+		// 	n++;
+		// }
+		// n = 0;
+		// printf("\n");
+		// while (stack_b[n] != NULL)
+		// {
+		// 	stack_a = stack_push(stack_a, stack_b);
+		// 	stack_b = stack_pop(stack_b, 4);
+		// }
+		// n = 0;
+		// while (stack_a[n] != NULL)
+		// {
+		// 	printf("%d ", stack_a[n][0]);
+		// 	n++;
+		// }
 		// system("leaks push_swap");
 		// while (1)
 		// 	;

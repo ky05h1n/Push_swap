@@ -2,7 +2,7 @@ NAME = push_swap
 
 GCC = cc
 
-SRC = push_swap.c arguments_checker.c push_swap_utils.c push_swap_instructions.c
+SRC = push_swap.c arguments_checker.c push_swap_utils.c push_swap_instructions.c push_swap_actions.c
 
 all : $(NAME)
 

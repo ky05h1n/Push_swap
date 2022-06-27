@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/06/26 07:51:54 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/27 09:15:21 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ typedef struct t_lmk{
 	int	**bloc2;
 }t_lmk;
 
+typedef struct t_data2{
+	int	**new_stack;
+	int	size;
+	int	idx;
+	int	ndx;
+}t_data2;
+
 int		*arguments_scanner(int ac, char **ar);
 void	error_msg(void);
 int		string_comp_no_digits(char *str);
@@ -39,9 +46,11 @@ void	check_for_sorted(int *bloc, int ac);
 int		tdm_arr_len(int **arr);
 int		**arg_arr(int *bloc, int ac);
 void	bloc_free(int **bloc);
-void	stack_swap(int **stack);
-int		**stack_rotate(int **stack);
-int		**reverse_rotate(int **stack);
-int		**take_push(int **stack1, int **stack2);
-int		**pop_stack(int **stack);
+void	stack_swap(int **stack, int sign);
+int		**stack_rotate(int **stack, int sign);
+int		**stack_reverse_rotate(int **stack, int sign);
+int		**stack_push(int **stack1, int **stack2);
+int		**stack_pop(int **stack, int sign);
+int		**sort_action_3_num(int **stack);
+void	print_instractions(int sign);
 #endif

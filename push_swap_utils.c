@@ -6,11 +6,31 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 22:31:49 by enja              #+#    #+#             */
-/*   Updated: 2022/06/26 05:57:56 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/27 09:20:12 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_instractions(int sign)
+{
+	if (sign == 0)
+		write(1, "sa\n", 3);
+	else if (sign == 1)
+		write(1, "sb\n", 3);
+	else if (sign == 2)
+		write(1, "ra\n", 3);
+	else if (sign == 3)
+		write(1, "rb\n", 3);
+	else if (sign == 4)
+		write(1, "pa\n", 3);
+	else if (sign == 5)
+		write(1, "pb\n", 3);
+	else if (sign == 6)
+		write(1, "rra\n", 4);
+	else if (sign == 7)
+		write(1, "rrb\n", 4);
+}
 
 int	**arg_arr(int *bloc, int ac)
 {
@@ -27,16 +47,6 @@ int	**arg_arr(int *bloc, int ac)
 	}
 	ptr->bloc2[ptr->idx] = NULL;
 	return (ptr->bloc2);
-}
-
-int	string_len(char *str)
-{
-	int	idx;
-
-	idx = 0;
-	while (str[idx])
-		idx++;
-	return (idx);
 }
 
 int	tdm_arr_len(int **arr)
