@@ -8,7 +8,6 @@ SRC = push_swap.c \
 	  push_swap_instructions.c \
 	  push_swap_actions_1.c \
 	  push_swap_actions_2.c \
-	  push_swap_checkers.c \
 
 all : $(NAME)
 
