@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 00:45:41 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 15:57:44 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int		tdm_arr_len(int **arr);
 int		**arg_arr(int *bloc, int ac);
 int		finished_check(int **stack);
 int		**sort_args(int **stack, int ac);
-int		**switching_args(int **stack_a, int **srt_stack);
+int		**switching_args(int **stack_a, int **srt_stack, int ac);
+int		next_check(int **stack, int len);
 void	stack_swap(int **stack, int sign);
 int		**stack_rotate(int **stack, int sign);
 int		**stack_reverse_rotate(int **stack, int sign);

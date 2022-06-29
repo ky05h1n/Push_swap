@@ -7,7 +7,7 @@ SRC = push_swap.c arguments_checker.c push_swap_utils.c push_swap_instructions.c
 all : $(NAME)
 
 $(NAME): $(SRC)
-	@gcc $(SRC) -Wall -Werror -Wextra -g -fsanitize=address -o $(NAME)
+	@gcc $(SRC) -Wall -Werror -Wextra -o $(NAME)
 	@echo "\033[1;32m Push_Swap is ready !"
 
 clean :
