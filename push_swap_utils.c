@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 22:31:49 by enja              #+#    #+#             */
-/*   Updated: 2022/06/27 09:20:12 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/28 23:31:18 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@ void	print_instractions(int sign)
 		write(1, "rra\n", 4);
 	else if (sign == 7)
 		write(1, "rrb\n", 4);
+}
+
+int	finished_check(int **stack)
+{
+	int	ndx;
+	int	idx;
+
+	ndx = 0;
+	idx = 1;
+	while (stack[idx] != NULL)
+	{
+		if (stack[ndx][0] < stack[idx++][0])
+			ndx++;
+		else
+			return (1);
+	}
+	return (0);
 }
 
 int	**arg_arr(int *bloc, int ac)
@@ -86,10 +103,4 @@ int	my_atoi(char *str)
 	if (value * sign > 2147483647 || value * sign < -2147483648)
 		error_msg();
 	return (value * sign);
-}
-
-void	error_msg(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
 }

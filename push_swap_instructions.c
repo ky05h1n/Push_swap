@@ -6,13 +6,13 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 03:59:31 by enja              #+#    #+#             */
-/*   Updated: 2022/06/27 09:13:39 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/27 11:56:47 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	**stack_take_push(int **stack1, int **stack2)
+int	**stack_push(int **stack1, int **stack2)
 {
 	t_data2	dt;
 	t_data2	*ptr;

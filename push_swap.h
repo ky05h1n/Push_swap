@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/06/27 09:28:28 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 00:45:41 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ int		string_len(char *str);
 void	check_for_sorted(int *bloc, int ac);
 int		tdm_arr_len(int **arr);
 int		**arg_arr(int *bloc, int ac);
-void	bloc_free(int **bloc);
+int		finished_check(int **stack);
+int		**sort_args(int **stack, int ac);
+int		**switching_args(int **stack_a, int **srt_stack);
 void	stack_swap(int **stack, int sign);
 int		**stack_rotate(int **stack, int sign);
 int		**stack_reverse_rotate(int **stack, int sign);
@@ -54,4 +56,6 @@ int		**stack_pop(int **stack, int sign);
 int		**sort_action_3_num(int **stack);
 void	print_instractions(int sign);
 int		**sort_action_5_num(int **stack_a, int **stack_b);
+int		**sort_actions_for_5(int **stack_a, int **stack_b);
+int		**sort_actions_for_4(int **stack_a, int **stack_b);
 #endif
