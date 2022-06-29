@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 18:52:14 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 18:58:15 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	main(int ac, char **av)
 			stack_a = sort_actions_for_4(stack_a, stack_b);
 		if (ac == 6)
 			stack_a = sort_actions_for_5(stack_a, stack_b);
-
 		// else
 		// 	stack_a = sorting_alg(stack_a, stack_b);
 	////////////////////////////////////// --for test---
