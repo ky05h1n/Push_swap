@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 01:15:02 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 12:47:33 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,34 @@ int	**sort_args(int **stack, int ac)
 int	**switching_args(int **stack_a, int **srt_stack)
 {
 	int	i;
-	int	j;
+	int	n;
+	n = 0;
+	
+		// while (stack_a[n] != NULL)
+		// {
+		// 	printf("%d ", stack_a[n][0]);
+		// 	n++;
+		// }
+		// n = 0;
+		// printf ("\n");
+		// while (stack_a[n] != NULL)
+		// {
+		// 	printf("%d ", srt_stack[n][0]);
+		// 	n++;
+		// }
+		// exit(1);
 
 	i = 0;
 	while (srt_stack[i] != NULL)
 	{
-		j = 0;
-		while (stack_a[j] != NULL && srt_stack[i] != NULL)
+		n = 0;
+		while (stack_a[n] != NULL)
 		{
-			if (srt_stack[i][0] != stack_a[j][0])
-				j++;
+			if (srt_stack[i][0] == stack_a[n][0] && srt_stack[i])
+				stack_a[n][0] = i++;
 			else
-				stack_a[j][0] = i;
+				n++;
 		}
-		i++;
 	}
 	return (stack_a);
 }
@@ -70,7 +84,7 @@ int	main(int ac, char **av)
 	int	**stack_a;
 	int	**stack_b;
 	int	**srt_stack;
-	// int	n;
+	int	n;
 
 	if (ac > 1)
 	{
@@ -83,14 +97,14 @@ int	main(int ac, char **av)
 		stack_a = switching_args(stack_a, srt_stack);
 		stack_b = malloc(1 * sizeof(int *));
 		stack_b[0] = NULL;
-		if (ac == 3)
-			stack_swap(stack_a, 0);
+		// if (ac == 3)
+		// 	stack_swap(stack_a, 0);
 		if (ac == 4)
 			stack_a = sort_action_3_num(stack_a);
-		if (ac == 5)
-			stack_a = sort_actions_for_4(stack_a, stack_b);
-		if (ac == 6)
-			stack_a = sort_actions_for_5(stack_a, stack_b);
+		// if (ac == 5)
+		// 	stack_a = sort_actions_for_4(stack_a, stack_b);
+		// if (ac == 6)
+		// 	stack_a = sort_actions_for_5(stack_a, stack_b);
 		// else
 		// 	stack_a = sorting_alg(stack_a, stack_b);
 	////////////////////////////////////// --for test---
@@ -112,12 +126,13 @@ int	main(int ac, char **av)
 		// 	stack_a = stack_push(stack_a, stack_b);
 		// 	stack_b = stack_pop(stack_b, 4);
 		// }
-		// n = 0;
-		// while (stack_a[n] != NULL)
-		// {
-		// 	printf("%d ", stack_a[n][0]);
-		// 	n++;
-		// }
+		n = 0;
+		// printf("%d ", srt_stack[2][0]);
+		while (stack_a[n] != NULL)
+		{
+			printf("%d ", stack_a[n][0]);
+			n++;
+		}
 		// system("leaks push_swap");
 		// while (1)
 		// 	;
