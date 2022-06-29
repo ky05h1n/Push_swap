@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 18:01:54 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 22:49:15 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ void	print_instractions(int sign);
 int		**sort_action_5_num(int **stack_a, int **stack_b);
 int		**sort_actions_for_5(int **stack_a, int **stack_b);
 int		**sort_actions_for_4(int **stack_a, int **stack_b);
+int		**sort_stack(int **stack_a, int **stack_b);
+void	update_range(int **stack_a, int *max, int *min, int *mid);
+int		**rotate_up(int **stack_a, int i);
+int		**rotate_down(int **stack_a, int i);
+int		**check_stack_b(int **stack_b, int mid);
+int		**sort_stack_comp(int **stack_a, int **stack_b);
+
 #endif
