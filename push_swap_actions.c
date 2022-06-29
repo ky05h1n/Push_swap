@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 05:56:39 by enja              #+#    #+#             */
-/*   Updated: 2022/06/28 23:42:16 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 18:41:56 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	**sort_actions_for_4(int **stack_a, int **stack_b)
 	stack_a = sort_action_3_num(stack_a);
 	stack_a = stack_push(stack_a, stack_b);
 	stack_b = stack_pop(stack_b, 4);
+	free(stack_b);
 	return (stack_a);
 }
 
@@ -107,6 +108,7 @@ int	**sort_action_5_num(int **stack_a, int **stack_b)
 	stack_b = stack_pop(stack_b, 4);
 	stack_a = stack_push(stack_a, stack_b);
 	stack_b = stack_pop(stack_b, 4);
+	free(stack_b);
 	return (stack_a);
 }
 

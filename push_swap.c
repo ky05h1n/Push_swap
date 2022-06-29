@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 17:13:15 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 18:52:14 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,9 @@ int	**switching_args(int **stack_a, int **srt_stack, int ac)
 	i = 0;
 	while (i < ac - 1)
 	{
-		stack_a[i][0] = new_stack[i];
+		stack_a[i] = &new_stack[i];
 		i++;
 	}
-	free(new_stack);
 	return (stack_a);
 }
 
@@ -77,7 +76,7 @@ int	main(int ac, char **av)
 	int	**stack_a;
 	int	**stack_b;
 	int	**srt_stack;
-	//int	n;
+	// int	n;
 
 	if (ac > 1)
 	{
@@ -98,6 +97,7 @@ int	main(int ac, char **av)
 			stack_a = sort_actions_for_4(stack_a, stack_b);
 		if (ac == 6)
 			stack_a = sort_actions_for_5(stack_a, stack_b);
+
 		// else
 		// 	stack_a = sorting_alg(stack_a, stack_b);
 	////////////////////////////////////// --for test---
@@ -126,7 +126,7 @@ int	main(int ac, char **av)
 		// 	printf("%d ", stack_a[n][0]);
 		// 	n++;
 		// }
-		system("leaks push_swap");
+		// system("leaks push_swap");
 		// while (1)
 		// 	;
 	 }

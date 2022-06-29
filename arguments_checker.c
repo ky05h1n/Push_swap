@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 14:26:00 by enja              #+#    #+#             */
-/*   Updated: 2022/06/24 23:46:36 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/29 17:37:07 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	string_comp_no_digits(char *str)
 {
 	int	ndx;
-	int	s;
 
-	s = 0;
 	ndx = 0;
 	if (str[ndx] == '\0')
 		return (-1);
@@ -35,11 +33,9 @@ int	string_comp_no_digits(char *str)
 
 int	string_comp(char *str1, char *str2)
 {
-	int	a;
 	int	bloc1;
 	int	bloc2;
 
-	a = 0;
 	bloc1 = my_atoi(str1);
 	bloc2 = my_atoi(str2);
 	if (bloc1 == bloc2)
