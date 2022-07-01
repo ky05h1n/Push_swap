@@ -6,82 +6,104 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:00:32 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 23:09:11 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/01 13:07:34 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	**rotate_up(int **stack_a, int i)
+int	**check_up_or_down_b(int **stack, int i)
 {
-	int	var;
+	if (i >= tdm_arr_len(stack) / 2)
+		stack = rotate_down(stack, i, 3);
+	else if (i < tdm_arr_len(stack) / 2)
+		stack = rotate_up(stack, i, 7);
+	return (stack);
+}
 
-	var = stack_a[i][0];
-	while (stack_a[0][0] != var)
-		stack_a = stack_rotate(stack_a, 2);
+int	**sort_action_all(int **stack_a, int **stack_b)
+{
+	int	n;
+
+	n = 0;
+	// printf("%d", stack_a[m][0] + 1);
+	// exit(1);
+	// while (stack_b[n] != NULL)
+	// {
+	// 	printf("%d ", stack_b[n][0]);
+	// 	n++;
+	// }
+	// printf ("\n");
+	// n = 0;
+	// while (stack_a[n] != NULL)
+	// {
+	// 	printf("%d ", stack_a[n][0]);
+	// 	n++;
+	// }
+	// exit(1);
+	while (stack_b[n] != NULL)
+	{
+		if (stack_a[0][0] + 1 == stack_b[n][0])
+		{
+			stack_b = check_up_or_down_b(stack_b, n);
+			stack_a = stack_push(stack_a, stack_b);
+			stack_b = stack_pop(stack_b, 4);
+			exit(1);
+		}
+		if (stack_b[n] == NULL && stack_b[0] != NULL)
+			n = 0;
+		n++;
+	}
 	return (stack_a);
 }
 
-int	**rotate_down(int **stack_a, int i)
+int **first_move_check(int **stack, int min, int max)
 {
-	int	var;
+	int i;
 
-	var = stack_a[i][0];
-	while (stack_a[0][0] != var)
-		stack_a = stack_reverse_rotate(stack_a, 6);
-	return (stack_a);
+	i = 0;
+	while (stack)
 }
 
-int	**check_stack_b(int **stack_b, int mid)
-{
-	if (stack_b[0][0] > mid && stack_b[1] != NULL)
-		stack_b = stack_rotate(stack_b, 3);
-	return (stack_b);
-}
-
-int	**sort_stack(int **stack_a, int **stack_b)
+int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
 {
 	int	min;
 	int	max;
 	int	mid;
-	int	i;
+	int	count;
+	int	i = 0;
 
+	(void)stack_hold;
+	count = 0;
 	min = 0;
-	max = (tdm_arr_len(stack_a) - 5) / 4 + 1;
+	max = ((tdm_arr_len(stack_a) - 5) / 5) + 1;
 	mid = (min + max) / 2;
-	printf("--> %d\n", max);
 	while (tdm_arr_len(stack_a) > 5)
 	{
-		i = 0;
-		while (stack_a[i] != NULL)
+		i = i % tdm_arr_len(stack_a);
+		if (stack_a[i][0] >= min && stack_a[i][0] <= max)
 		{
-			if (stack_a[i][0] >= min && stack_a[i][0] <= max)
-			{
-				printf("first --> %d\n", stack_a[i][0]);
-				exit(1);
-				if (i <= tdm_arr_len(stack_a) / 2)
-					stack_a = rotate_up(stack_a, i);
-				if (i > tdm_arr_len(stack_a) / 2)
-					stack_a = rotate_down(stack_a, i);
-				stack_b = stack_push(stack_b, stack_a);
-				stack_a = stack_pop(stack_a, 5);
-				stack_b = check_stack_b(stack_b, mid);
-			}
-			i++;
+			stack_a = first_move_check(stack_a, min, max);
+			stack_b = stack_push(stack_b, stack_a);
+			stack_a = stack_pop(stack_a, 5);
+			stack_b = check_stack_b(stack_b, mid);
+			i = 0;
 		}
-		update_range(stack_a, &max, &min, &mid);
-	}
-	stack_a = sort_action_5_num(stack_a, stack_b);
-	// stack_a = sort_stack_comp(stack_a, stack_b);
-	while (stack_a[i] != NULL)
-	{
-		printf("%d ", stack_a[i][0]);
+		if (check_min_max(stack_a, min, max) == 1)
+		{
+			// printf("min = %d | max = %d\n", min, max);
+			update_range(stack_a, &max, &min, &mid);
+			i = 0;
+		}
 		i++;
 	}
-	exit(1);
+	i = 0;
+	stack_a = sort_actions_for_5(stack_a, stack_hold);
+	stack_a = sort_action_all(stack_a, stack_b);
+	// while (stack_b[i] != NULL)
+	// {
+	// 	printf("%d ", stack_b[i][0]);
+	// 	i++;
+	// }
+	return (stack_a);
 }
-
-// int **sort_stack_comp(int **stack_a, int **stack_b)
-// {
-	
-// }

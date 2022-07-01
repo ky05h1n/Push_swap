@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 23:10:23 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/01 12:58:56 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	error_msg(void)
 void	update_range(int **stack_a, int *max, int *min, int *mid)
 {
 	*min = *max;
-	*max += (tdm_arr_len(stack_a) - 5) / 4 + 1;
+	*max += ((tdm_arr_len(stack_a) - 5) / 5) + 1;
 	*mid = (*min + *max) / 2;
 }
 
@@ -83,6 +83,7 @@ int	main(int ac, char **av)
 	int	**stack_a;
 	int	**stack_b;
 	int	**srt_stack;
+	int **stack_hold;
 	int	n;
 
 	if (ac > 1)
@@ -96,6 +97,8 @@ int	main(int ac, char **av)
 		stack_a = switching_args(stack_a, srt_stack, ac);
 		stack_b = malloc(1 * sizeof(int *));
 		stack_b[0] = NULL;
+		stack_hold = malloc(1 * sizeof(int *));
+		stack_hold[0] = NULL;
 		// if (ac == 3)
 		// 	stack_swap(stack_a, 0);
 		// if (ac == 4)
@@ -104,8 +107,8 @@ int	main(int ac, char **av)
 		// 	stack_a = sort_actions_for_4(stack_a, stack_b);
 		// if (ac == 6)
 		// 	stack_a = sort_actions_for_5(stack_a, stack_b);
-		// if (ac > 6)
-		// 	stack_a = sort_stack(stack_a, stack_b);
+		if (ac > 6)
+			stack_a = sort_stack(stack_a, stack_b, stack_hold);
 	////////////////////////////////////// --for test---
 		// while (stack_a[n] != NULL)
 		// {
@@ -126,7 +129,7 @@ int	main(int ac, char **av)
 		// 	stack_b = stack_pop(stack_b, 4);
 		// }
 		n = 0;
-		// // printf("%d ", srt_stack[2][0]);
+		// // // // printf("%d ", srt_stack[2][0]);
 		while (stack_a[n] != NULL)
 		{
 			printf("%d ", stack_a[n][0]);

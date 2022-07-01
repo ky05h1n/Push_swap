@@ -8,11 +8,12 @@ SRC = push_swap.c \
 	  push_swap_instructions.c \
 	  push_swap_actions_1.c \
 	  push_swap_actions_2.c \
+	  push_swap_actions_3.c \
 
 all : $(NAME)
 
 $(NAME): $(SRC)
-	@gcc $(SRC) -Wall -Werror -Wextra -o $(NAME)
+	@gcc $(SRC) -g -Wall -Werror -Wextra -fsanitize=address -o $(NAME)
 	@echo "\033[1;32m Push_Swap is ready !"
 
 clean :

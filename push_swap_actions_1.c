@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_actions.c                                :+:      :+:    :+:   */
+/*   push_swap_actions_1.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 05:56:39 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 18:41:56 by enja             ###   ########.fr       */
+/*   Updated: 2022/06/30 17:28:39 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,28 @@ int	**sort_actions_for_4(int **stack_a, int **stack_b)
 	return (stack_a);
 }
 
+int	smalest(int **stack)
+{
+	int n;
+	int i;
+
+	n = 0;
+	i = 1;
+	while(stack[n] && stack[i])
+	{
+		if (stack[n][0] < stack[i][0])
+			i++;
+		else
+		{
+			n++;
+			i = n + 1;
+		}
+		if (stack[n + 1] == NULL)
+			return (stack[n][0]);
+	}
+	return (stack[n][0]);
+}
+
 int	**sort_actions_for_5(int **stack_a, int **stack_b)
 {
 	int	a;
@@ -75,7 +97,7 @@ int	**sort_actions_for_5(int **stack_a, int **stack_b)
 
 	count = 0;
 	a = -1;
-	num = 0;
+	num = smalest(stack_a);
 	while (stack_a[++a] != NULL)
 	{
 		if (stack_a[a][0] == num)
@@ -89,7 +111,7 @@ int	**sort_actions_for_5(int **stack_a, int **stack_b)
 					stack_a = stack_rotate(stack_a, 2);
 			stack_b = stack_push(stack_b, stack_a);
 			stack_a = stack_pop(stack_a, 5);
-			num = 1;
+			num = smalest(stack_a);
 			a = -1;
 		}
 		if (count == 2)
@@ -102,7 +124,7 @@ int	**sort_actions_for_5(int **stack_a, int **stack_b)
 
 int	**sort_action_5_num(int **stack_a, int **stack_b)
 {
-	if (stack_b[0][0] == 0)
+	if (stack_b[0][0] < stack_b[1][0])
 		stack_swap(stack_b, 1);
 	stack_a = stack_push(stack_a, stack_b);
 	stack_b = stack_pop(stack_b, 4);
