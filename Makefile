@@ -5,10 +5,11 @@ GCC = cc
 SRC = push_swap.c \
 	  push_swap_arguments_checker.c \
 	  push_swap_utils.c \
-	  push_swap_instructions.c \
+	  push_swap_instructions_1.c \
 	  push_swap_actions_1.c \
 	  push_swap_actions_2.c \
 	  push_swap_actions_3.c \
+	  push_swap_instructions_2.c \
 
 all : $(NAME)
 

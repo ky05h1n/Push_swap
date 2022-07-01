@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/06/30 19:56:49 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/01 19:35:18 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,17 @@ void	update_range(int **stack_a, int *max, int *min, int *mid);
 int		**rotate_up(int **stack_a, int i, int sign);
 int		**rotate_down(int **stack_a, int i, int sign);
 int		**check_stack_b(int **stack_b, int mid);
-int		**sort_stack_comp(int **stack_a, int **stack_b);
 int		**check_up_or_down(int **stack, int i);
 int		smalest(int **stack);
+int		smalest2(int **stack);
 int		check_min_max(int **stack, int min, int max);
 int		**sort_action_all(int **stack_a, int **stack_b);
 int		**check_up_or_down_b(int **stack, int i);
+int		**first_move_check(int **stack, int min, int max);
+int		bigest(int **stack);
+int		**stack_push_2(int **stack1, int **stack2);
+int		**stack_pop_2(int **stack);
+int		**stack_rotate_2(int **stack);
+int		**stack_reverse_rotate_2(int **stack);
+
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_instructions.c                           :+:      :+:    :+:   */
+/*   push_swap_instructions_2.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 03:59:31 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 18:37:56 by enja             ###   ########.fr       */
+/*   Created: 2022/07/01 19:12:20 by enja              #+#    #+#             */
+/*   Updated: 2022/07/01 20:33:21 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	**stack_push(int **stack1, int **stack2)
+int	**stack_push_2(int **stack1, int **stack2)
 {
 	t_data2	dt;
 	t_data2	*ptr;
@@ -39,7 +39,7 @@ int	**stack_push(int **stack1, int **stack2)
 	return (stack1);
 }
 
-int	**stack_pop(int **stack, int sign)
+int	**stack_pop_2(int **stack)
 {
 	int	a;
 	int	size;
@@ -61,23 +61,10 @@ int	**stack_pop(int **stack, int sign)
 		stack_pop[a++] = stack[m++];
 	free(stack);
 	stack = stack_pop;
-	print_instractions(sign);
 	return (stack);
 }
 
-void	stack_swap(int **stack, int sign)
-{
-	int		idx;
-	int		*ptr;
-
-	idx = 0;
-	ptr = stack[idx];
-	stack[idx] = stack[idx + 1];
-	stack[idx + 1] = ptr;
-	print_instractions(sign);
-}
-
-int	**stack_rotate(int **stack, int sign)
+int	**stack_rotate_2(int **stack)
 {
 	int		**handl_stack;
 	int		idx;
@@ -97,11 +84,10 @@ int	**stack_rotate(int **stack, int sign)
 	handl_stack[idx - 1] = stack[0];
 	free(stack);
 	stack = handl_stack;
-	print_instractions(sign);
 	return (stack);
 }
 
-int	**stack_reverse_rotate(int	**stack, int sign)
+int	**stack_reverse_rotate_2(int **stack)
 {
 	int		**handl_stack;
 	int		idx;
@@ -122,6 +108,5 @@ int	**stack_reverse_rotate(int	**stack, int sign)
 	handl_stack[0] = stack[idx - 1];
 	free(stack);
 	stack = handl_stack;
-	print_instractions(sign);
 	return (stack);
 }
