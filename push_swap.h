@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/07/01 19:35:18 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/01 21:50:49 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int		**stack_push_2(int **stack1, int **stack2);
 int		**stack_pop_2(int **stack);
 int		**stack_rotate_2(int **stack);
 int		**stack_reverse_rotate_2(int **stack);
+int		searsh_for_num(int **stack_a, int **stack_b);
 
 #endif

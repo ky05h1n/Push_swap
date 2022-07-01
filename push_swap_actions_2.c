@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:00:32 by enja              #+#    #+#             */
-/*   Updated: 2022/07/01 20:39:15 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/01 23:20:54 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,26 @@ int	bigest(int **stack)
 	return (n);
 }
 
+int	searsh_for_num(int **stack_a, int **stack_b)
+{
+	int	var;
+	int	i;
+
+	i = 0;
+	var = stack_a[0][0] - 1;
+	while (stack_b[i] != NULL)
+	{
+		if (stack_b[i][0] == var)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	**sort_action_all(int **stack_a, int **stack_b)
 {
 	int	n;
-	int	num;
+	// int	num;
 
 	// n = -1;
 	// size = tdm_arr_len(stack_b) + 5;
@@ -53,18 +69,20 @@ int	**sort_action_all(int **stack_a, int **stack_b)
 	// 	printf("%d ", stack_a[n][0]);
 	// }
 	// exit(1);
-	num = bigest(stack_b);
+	// num = bigest(stack_b);
 	// printf("-->--------> %d", num);
 	// exit(1);
-	stack_b = check_up_or_down_b(stack_b, num);
-	stack_a = stack_push(stack_a, stack_b);
-	stack_b = stack_pop(stack_b, 4);
+	// stack_b = check_up_or_down_b(stack_b, num);
+	// stack_a = stack_push(stack_a, stack_b);
+	// stack_b = stack_pop(stack_b, 4);
 	// printf("%d", stack_a[0][0]);
-	n = -1;
+	stack_a[tdm_arr_len(stack_a) - 1][0] = -1;
+	// printf("%d", stack_a[tdm_arr_len(stack_a) - 1][0]);
+	// exit(1);
+	n = 0;
 	while (stack_b[0] != NULL)
 	{
-		n++;
-		if (stack_a[0][0] - 1 == stack_b[n][0] && stack_b[n] != NULL)
+		if (stack_a[0][0] - 1 == stack_b[n][0])
 		{
 			stack_b = check_up_or_down_b(stack_b, n);
 			stack_a = stack_push_2(stack_a, stack_b);
@@ -72,7 +90,35 @@ int	**sort_action_all(int **stack_a, int **stack_b)
 			write(1, "pa\n", 3);
 			n = -1;
 		}
+		else if (stack_b[n][0] < stack_a[0][0] - 1 && stack_b[n][0] > stack_a[tdm_arr_len(stack_a) - 1][0])
+		{
+			// printf("----%d\n", n);
+			// printf("---------9--------\n%d %d\n----------------\n", stack_a[0][0], stack_a[tdm_arr_len(stack_a) - 1][0]);
+			stack_a = stack_push_2(stack_a, stack_b);
+			stack_b = stack_pop_2(stack_b);
+			write(1, "pa\n", 3);
+			stack_a = stack_rotate_2(stack_a);
+			write(1, "ra\n", 3);
+		}
+		n++;
+		
+		// 	printf("----->>%d\n", n);
+		// // if (searsh_for_num(stack_a, stack_b) == 0)
+		// // {
+		// // 	stack_a = stack_reverse_rotate_2(stack_a);
+		// // 	write(1, "rra\n", 4);
+		// // }
+		// if (stack_b[n] == NULL)
+		// 	n = 0;
+		// else
+		// 	n++;
+		
 	}
+	// while(finished_check(stack_a)  1)
+	// {
+	// 	stack_a = stack_reverse_rotate_2(stack_a);
+	// 	write(1, "rra\n", 4);
+	// }
 	return (stack_a);
 }
 
@@ -120,9 +166,9 @@ int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
 	(void)stack_hold;
 	count = 0;
 	min = 0;
-	max = (tdm_arr_len(stack_a) / 2) + 1;
+	max = ((tdm_arr_len(stack_a) - 5) / 4) + 1;
 	mid = (min + max) / 2;
-	while (stack_a[0] != NULL)
+	while (tdm_arr_len(stack_a) > 5)
 	{
 		if (check_min_max(stack_a, min, max) == 0)
 		{
@@ -137,7 +183,7 @@ int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
 			update_range(stack_a, &max, &min, &mid);
 		}
 	}
-	// stack_a = sort_actions_for_5(stack_a, stack_hold);
+	stack_a = sort_actions_for_5(stack_a, stack_hold);
 	stack_a = sort_action_all(stack_a, stack_b);
 	// i = 0;
 	// while (stack_a[i] != NULL)
