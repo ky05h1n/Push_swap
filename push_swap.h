@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/07/02 22:12:56 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:14:11 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		string_comp_no_digits(char *str);
 int		my_atoi(char *str);
 int		string_len(char *str);
 void	check_for_sorted(int *bloc, int ac);
-int		tdm_arr_len(int **arr);
+int		tdm(int **arr);
 int		**arg_arr(int *bloc, int ac);
 int		finished_check(int **stack);
 int		**sort_args(int **stack, int ac);
@@ -68,7 +68,7 @@ int		**check_up_or_down(int **stack, int i);
 int		smalest(int **stack);
 int		smalest2(int **stack);
 int		check_min_max(int **stack, int min, int max);
-int		**sort_action_all(int **stack_a, int **stack_b);
+int		**sort_action_all(int **st_a, int **st_b);
 void	down_b(int ***stack_a, int ***stack_b);
 void	up_b(int ***stack_a, int ***stack_b);
 int		**first_move_check(int **stack, int min, int max);

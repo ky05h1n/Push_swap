@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 05:56:39 by enja              #+#    #+#             */
-/*   Updated: 2022/06/30 17:28:39 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:22:18 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	**sort_action_3_num(int **stack)
 	int	n;
 
 	n = 0;
-	i = tdm_arr_len(stack) - 1;
+	i = tdm(stack) - 1;
 	if (finished_check(stack) == 0)
 		return (stack);
 	if (stack[n][n] > stack[i - 1][n] && stack[n][n] < stack[i][n])

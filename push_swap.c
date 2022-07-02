@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/07/02 23:52:35 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:26:43 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	error_msg(void)
 void	update_range(int **stack_a, int *max, int *min, int *mid)
 {
 	*min = *max;
-	*max += ((tdm_arr_len(stack_a) - 5) / 2) + 1;
+	*max += ((tdm(stack_a) - 5) / 2) + 1;
 	*mid = (*min + *max) / 2;
 }
 

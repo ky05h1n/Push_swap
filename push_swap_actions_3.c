@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:24:44 by enja              #+#    #+#             */
-/*   Updated: 2022/07/02 23:19:59 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:15:10 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	**check_stack_b(int **stack_b, int mid)
 
 void	down_b(int ***stack_a, int ***stack_b)
 {
-	if (stack_b[0][0][0] < stack_a[0][0][0] && stack_b[0][0][0] > stack_a[0][tdm_arr_len(*stack_a) - 1][0])
+	if (stack_b[0][0][0] < stack_a[0][0][0]
+		&& stack_b[0][0][0] > stack_a[0][tdm(*stack_a) - 1][0])
 	{
 		*stack_a = stack_push_2(*stack_a, *stack_b);
 		*stack_b = stack_pop_2(*stack_b);
@@ -43,7 +44,8 @@ void	down_b(int ***stack_a, int ***stack_b)
 
 void	up_b(int ***stack_a, int ***stack_b)
 {	
-	if (stack_b[0][0][0] < stack_a[0][0][0] && stack_b[0][0][0] > stack_a[0][tdm_arr_len(*stack_a) - 1][0])
+	if (stack_b[0][0][0] < stack_a[0][0][0]
+		&& stack_b[0][0][0] > stack_a[0][tdm(*stack_a) - 1][0])
 	{
 		*stack_a = stack_push_2(*stack_a, *stack_b);
 		*stack_b = stack_pop_2(*stack_b);
@@ -63,7 +65,7 @@ int	**check_up_or_down(int **stack, int i)
 	int	var;
 
 	var = stack[i][0];
-	if (i > tdm_arr_len(stack) / 2)
+	if (i > tdm(stack) / 2)
 	{
 		while (stack[0][0] != var)
 		{
@@ -71,7 +73,7 @@ int	**check_up_or_down(int **stack, int i)
 			write(1, "rra\n", 4);
 		}
 	}
-	else if (i <= tdm_arr_len(stack) / 2)
+	else if (i <= tdm(stack) / 2)
 	{
 		while (stack[0][0] != var)
 		{

@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 22:31:49 by enja              #+#    #+#             */
-/*   Updated: 2022/07/02 18:23:32 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:17:22 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	**arg_arr(int *bloc, int ac)
 	return (ptr->bloc2);
 }
 
-int	tdm_arr_len(int **arr)
+int	tdm(int **arr)
 {
 	int	a;
 

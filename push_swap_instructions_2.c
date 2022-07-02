@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:12:20 by enja              #+#    #+#             */
-/*   Updated: 2022/07/01 20:33:21 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:23:33 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	**stack_push_2(int **stack1, int **stack2)
 	ptr = &dt;
 	ptr->ndx = 0;
 	ptr->idx = 0;
-	ptr->size = tdm_arr_len(stack1) + 2;
+	ptr->size = tdm(stack1) + 2;
 	ptr->new_stack = malloc(ptr->size * sizeof(int *));
 	ptr->new_stack[ptr->size - 1] = NULL;
 	ptr->new_stack[ptr->idx] = stack2[ptr->idx];
-	if (tdm_arr_len(stack1) == 0)
+	if (tdm(stack1) == 0)
 	{
 		free(stack1);
 		stack1 = ptr->new_stack;
@@ -48,7 +48,7 @@ int	**stack_pop_2(int **stack)
 
 	a = 0;
 	m = 1;
-	size = tdm_arr_len(stack);
+	size = tdm(stack);
 	if (size == 0)
 	{
 		free(stack);
@@ -71,7 +71,7 @@ int	**stack_rotate_2(int **stack)
 	int		size;
 
 	idx = 1;
-	size = tdm_arr_len(stack) + 1;
+	size = tdm(stack) + 1;
 	handl_stack = malloc(size * sizeof(int *));
 	size = 0;
 	while (stack[idx] != NULL)
@@ -96,7 +96,7 @@ int	**stack_reverse_rotate_2(int **stack)
 
 	idx = 1;
 	ndx = 0;
-	size = tdm_arr_len(stack) + 1;
+	size = tdm(stack) + 1;
 	handl_stack = malloc(size * sizeof(int *));
 	while (idx < size - 1)
 	{

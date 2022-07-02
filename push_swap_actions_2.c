@@ -6,33 +6,11 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:00:32 by enja              #+#    #+#             */
-/*   Updated: 2022/07/02 23:52:30 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 00:28:24 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	bigest(int **stack)
-{
-	int	n;
-	int	i;
-
-	n = 0;
-	i = 1;
-	while (stack[n] && stack[i])
-	{
-		if (stack[n][0] > stack[i][0])
-			i++;
-		else
-		{
-			n++;
-			i = n + 1;
-		}
-		if (stack[n + 1] == NULL)
-			return (n);
-	}
-	return (n);
-}
 
 int	searsh_for_num(int **stack_a, int **stack_b)
 {
@@ -50,55 +28,40 @@ int	searsh_for_num(int **stack_a, int **stack_b)
 	return (0);
 }
 
-void	test(int ***stack_a, int ***stack_b)
+int	**sort_action_all(int **st_a, int **st_b)
 {
-	(void)stack_b;
-	*stack_a = stack_reverse_rotate_2(*stack_a);
-}
+	int	n;
 
-int	**sort_action_all(int **stack_a, int **stack_b)
-{
-	int	i;
-	int n;
-	// int num1;
-	// int num2;
-	// int num3;
-	i = stack_a[tdm_arr_len(stack_a) - 1][0];
-	stack_a[tdm_arr_len(stack_a) - 1][0] = -1;
+	st_a[tdm(st_a) - 1][0] = -1;
 	n = 0;
-	while (stack_b[0] || finished_check(stack_a) == 1)
+	while (st_b[0] || finished_check(st_a) == 1)
 	{
-		while (stack_b[n] && stack_a[0][0] - 1 != stack_b[n][0])
+		while (st_b[n] && st_a[0][0] - 1 != st_b[n][0])
 			n++;
-		if (searsh_for_num(stack_a, stack_b) == 0)
+		if (searsh_for_num(st_a, st_b) == 0)
 		{
-			stack_a = stack_reverse_rotate_2(stack_a);
+			st_a = stack_reverse_rotate_2(st_a);
 			write(1, "rra\n", 4);
 		}
-		if (stack_b[n] && n > tdm_arr_len(stack_b) / 2 && stack_a[0][0] - 1 == stack_b[n][0])
+		if (st_b[n] && n > tdm(st_b) / 2 && st_a[0][0] - 1 == st_b[n][0])
 		{
-			while(stack_a[0][0] - 1 != stack_b[0][0])
-				up_b(&stack_a, &stack_b);
-			stack_a = stack_push_2(stack_a, stack_b);
-			stack_b = stack_pop_2(stack_b);
+			while (st_a[0][0] - 1 != st_b[0][0])
+				up_b(&st_a, &st_b);
+			st_a = stack_push_2(st_a, st_b);
+			st_b = stack_pop_2(st_b);
 			write(1, "pa\n", 3);
 		}
-		else if (stack_b[n] && n <= tdm_arr_len(stack_b) / 2 && stack_a[0][0] - 1 == stack_b[n][0])
+		else if (st_b[n] && n <= tdm(st_b) / 2 && st_a[0][0] - 1 == st_b[n][0])
 		{
-			while(stack_a[0][0] - 1 != stack_b[0][0])
-				down_b(&stack_a, &stack_b);
-			stack_a = stack_push_2(stack_a, stack_b);
-			stack_b = stack_pop_2(stack_b);
+			while (st_a[0][0] - 1 != st_b[0][0])
+				down_b(&st_a, &st_b);
+			st_a = stack_push_2(st_a, st_b);
+			st_b = stack_pop_2(st_b);
 			write(1, "pa\n", 3);
 		}
 		n = 0;
 	}
-	// printf("%d\n", stack_a[tdm_arr_len(stack_a) - 1][0]);
-	// while (stack_b[0])
-	// {
-	// 	if (stack_a)
-	// }
-	return (stack_a);
+	return (st_a);
 }
 
 int	**first_move_check(int **stack, int min, int max)
@@ -108,7 +71,7 @@ int	**first_move_check(int **stack, int min, int max)
 	int	size;
 
 	i = 0;
-	size = tdm_arr_len(stack) - 1;
+	size = tdm(stack) - 1;
 	count = 0;
 	while (1)
 	{
@@ -140,16 +103,11 @@ int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
 	int	min;
 	int	max;
 	int	mid;
-	int	count;
-	// int	i = 0;
-	// int size;
 
-	(void)stack_hold;
-	count = 0;
 	min = 0;
-	max = ((tdm_arr_len(stack_a) - 5) / 2) + 1;
+	max = ((tdm(stack_a) - 5) / 2) + 1;
 	mid = (min + max) / 2;
-	while (tdm_arr_len(stack_a) > 5)
+	while (tdm(stack_a) > 5)
 	{
 		if (check_min_max(stack_a, min, max) == 0)
 		{
@@ -160,27 +118,9 @@ int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
 			stack_b = check_stack_b(stack_b, mid);
 		}
 		else if (check_min_max(stack_a, min, max) == 1)
-		{
 			update_range(stack_a, &max, &min, &mid);
-		}
 	}
 	stack_a = sort_actions_for_5(stack_a, stack_hold);
 	stack_a = sort_action_all(stack_a, stack_b);
-	// i = 0;
-	// while (stack_a[i] != NULL)
-	// {
-	// 	printf("%d ", stack_a[i][0]);
-	// 	i++;
-	// }
-	// printf("\n");
-	// i = 0;
-	// while (stack_b[i] != NULL)
-	// {
-	// 	printf("%d ", stack_b[i][0]);
-	// 	i++;
-	// }
-	// size = tdm_arr_len(stack_b);
-	// printf("%d", size);
-	// exit(1);
 	return (stack_a);
 }
