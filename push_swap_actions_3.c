@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:24:44 by enja              #+#    #+#             */
-/*   Updated: 2022/07/01 19:37:58 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/02 23:19:59 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,38 @@ int	**check_stack_b(int **stack_b, int mid)
 		return (stack_b);
 }
 
-int	**check_up_or_down_b(int **stack, int i)
+void	down_b(int ***stack_a, int ***stack_b)
 {
-	int	var;
+	if (stack_b[0][0][0] < stack_a[0][0][0] && stack_b[0][0][0] > stack_a[0][tdm_arr_len(*stack_a) - 1][0])
+	{
+		*stack_a = stack_push_2(*stack_a, *stack_b);
+		*stack_b = stack_pop_2(*stack_b);
+		write(1, "pa\n", 3);
+		*stack_a = stack_rotate_2(*stack_a);
+		write(1, "ra\n", 3);
+	}
+	else
+	{
+		*stack_b = stack_rotate_2(*stack_b);
+		write(1, "rb\n", 3);
+	}
+}
 
-	var = stack[i][0];
-	if (i >= tdm_arr_len(stack) / 2)
+void	up_b(int ***stack_a, int ***stack_b)
+{	
+	if (stack_b[0][0][0] < stack_a[0][0][0] && stack_b[0][0][0] > stack_a[0][tdm_arr_len(*stack_a) - 1][0])
 	{
-		while (stack[0][0] != var)
-		{
-			stack = stack_reverse_rotate_2(stack);
-			write(1, "rrb\n", 4);
-		}
+		*stack_a = stack_push_2(*stack_a, *stack_b);
+		*stack_b = stack_pop_2(*stack_b);
+		write(1, "pa\n", 3);
+		*stack_a = stack_rotate_2(*stack_a);
+		write(1, "ra\n", 3);
 	}
-	else if (i < tdm_arr_len(stack) / 2)
+	else
 	{
-		while (stack[0][0] != var)
-		{
-			stack = stack_rotate_2(stack);
-			write(1, "rb\n", 3);
-		}
+		*stack_b = stack_reverse_rotate_2(*stack_b);
+		write(1, "rrb\n", 4);
 	}
-	return (stack);
 }
 
 int	**check_up_or_down(int **stack, int i)
@@ -53,7 +63,7 @@ int	**check_up_or_down(int **stack, int i)
 	int	var;
 
 	var = stack[i][0];
-	if (i >= tdm_arr_len(stack) / 2)
+	if (i > tdm_arr_len(stack) / 2)
 	{
 		while (stack[0][0] != var)
 		{
@@ -61,7 +71,7 @@ int	**check_up_or_down(int **stack, int i)
 			write(1, "rra\n", 4);
 		}
 	}
-	else if (i < tdm_arr_len(stack) / 2)
+	else if (i <= tdm_arr_len(stack) / 2)
 	{
 		while (stack[0][0] != var)
 		{

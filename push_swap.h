@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/07/01 21:50:49 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/02 22:12:56 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int		smalest(int **stack);
 int		smalest2(int **stack);
 int		check_min_max(int **stack, int min, int max);
 int		**sort_action_all(int **stack_a, int **stack_b);
-int		**check_up_or_down_b(int **stack, int i);
+void	down_b(int ***stack_a, int ***stack_b);
+void	up_b(int ***stack_a, int ***stack_b);
 int		**first_move_check(int **stack, int min, int max);
 int		bigest(int **stack);
 int		**stack_push_2(int **stack1, int **stack2);
@@ -77,5 +78,6 @@ int		**stack_pop_2(int **stack);
 int		**stack_rotate_2(int **stack);
 int		**stack_reverse_rotate_2(int **stack);
 int		searsh_for_num(int **stack_a, int **stack_b);
-
+int		find_len(int **stack_a, int **stack_b);
+void	test_1_1(int **stack_a, int **stack_b);
 #endif

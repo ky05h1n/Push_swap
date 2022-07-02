@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:41:20 by enja              #+#    #+#             */
-/*   Updated: 2022/07/01 21:04:16 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/02 23:52:35 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	error_msg(void)
 void	update_range(int **stack_a, int *max, int *min, int *mid)
 {
 	*min = *max;
-	*max += ((tdm_arr_len(stack_a) - 5) / 4) + 1;
+	*max += ((tdm_arr_len(stack_a) - 5) / 2) + 1;
 	*mid = (*min + *max) / 2;
 }
 
@@ -84,7 +84,7 @@ int	main(int ac, char **av)
 	int	**stack_b;
 	int	**srt_stack;
 	int **stack_hold;
-	int	n;
+	// int	n;
 
 	if (ac > 1)
 	{
@@ -113,7 +113,11 @@ int	main(int ac, char **av)
 
 		
 		if (ac > 6)
+		{
 			stack_a = sort_stack(stack_a, stack_b, stack_hold);
+			stack_a = stack_rotate_2(stack_a);
+			write(1, "ra\n", 3);
+		}
 			
 	////////////////////////////////////// --for test---
 		// while (stack_a[n] != NULL)
@@ -134,13 +138,13 @@ int	main(int ac, char **av)
 		// 	stack_a = stack_push(stack_a, stack_b);
 		// 	stack_b = stack_pop(stack_b, 4);
 		// // }
-		n = 0;
-		// // // // // // printf("%d ", srt_stack[2][0]);
-		while (stack_a[n] != NULL)
-		{
-			printf("%d ", stack_a[n][0]);
-			n++;
-		}
+		// n = 0;
+		// // // // // // // printf("%d ", srt_stack[2][0]);
+		// while (stack_a[n] != NULL)
+		// {
+		// 	printf("%d ", stack_a[n][0]);
+		// 	n++;
+		// }
 		// system("leaks push_swap");
 		// while (1)
 		// 	;
