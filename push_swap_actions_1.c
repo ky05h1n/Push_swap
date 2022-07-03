@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 05:56:39 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 00:22:18 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 14:29:04 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	**sort_action_3_num(int **stack)
 		return (stack);
 	if (stack[n][n] > stack[i - 1][n] && stack[n][n] < stack[i][n])
 		stack_swap(stack, 0);
-	else if ((stack[n][n] > stack[i - 1][n] && stack[n][n] > stack[i][n]) &&
-	(stack[i - 1][n] > stack[i][n]))
+	else if ((stack[n][n] > stack[i - 1][n] && stack[n][n] > stack[i][n])
+		&& (stack[i - 1][n] > stack[i][n]))
 	{
 		stack_swap(stack, 0);
 		stack = stack_reverse_rotate(stack, 6);
@@ -52,7 +52,7 @@ int	**sort_actions_for_4(int **stack_a, int **stack_b)
 		{
 			if (a > 2)
 				while (stack_a[0][0] != 0)
-					stack_a = stack_reverse_rotate(stack_a, 6);		
+					stack_a = stack_reverse_rotate(stack_a, 6);
 			else if (a <= 2)
 				while (stack_a[0][0] != 0)
 					stack_a = stack_rotate(stack_a, 2);
@@ -69,12 +69,12 @@ int	**sort_actions_for_4(int **stack_a, int **stack_b)
 
 int	smalest(int **stack)
 {
-	int n;
-	int i;
+	int	n;
+	int	i;
 
 	n = 0;
 	i = 1;
-	while(stack[n] && stack[i])
+	while (stack[n] && stack[i])
 	{
 		if (stack[n][0] < stack[i][0])
 			i++;
@@ -91,31 +91,27 @@ int	smalest(int **stack)
 
 int	**sort_actions_for_5(int **stack_a, int **stack_b)
 {
-	int	a;
-	int	num;
-	int	count;
+	t_data3	pt;
 
-	count = 0;
-	a = -1;
-	num = smalest(stack_a);
-	while (stack_a[++a] != NULL)
+	pt.count = 0;
+	pt.a = -1;
+	pt.num = smalest(stack_a);
+	while (pt.count != 2 && stack_a[++pt.a] != NULL)
 	{
-		if (stack_a[a][0] == num)
+		if (stack_a[pt.a][0] == pt.num)
 		{
-			count++;
-			if (a > 2)
-				while (stack_a[0][0] != num)
-					stack_a = stack_reverse_rotate(stack_a, 6);		
-			else if (a <= 2)
-				while (stack_a[0][0] != num)
+			pt.count++;
+			if (pt.a > 2)
+				while (stack_a[0][0] != pt.num)
+					stack_a = stack_reverse_rotate(stack_a, 6);
+			else if (pt.a <= 2)
+				while (stack_a[0][0] != pt.num)
 					stack_a = stack_rotate(stack_a, 2);
 			stack_b = stack_push(stack_b, stack_a);
 			stack_a = stack_pop(stack_a, 5);
-			num = smalest(stack_a);
-			a = -1;
+			pt.num = smalest(stack_a);
+			pt.a = -1;
 		}
-		if (count == 2)
-			break ;
 	}
 	stack_a = sort_action_3_num(stack_a);
 	stack_a = sort_action_5_num(stack_a, stack_b);
@@ -133,6 +129,3 @@ int	**sort_action_5_num(int **stack_a, int **stack_b)
 	free(stack_b);
 	return (stack_a);
 }
-
-
- 

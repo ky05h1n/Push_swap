@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 22:26:37 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 01:58:33 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 14:37:22 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ typedef struct t_data2{
 	int	idx;
 	int	ndx;
 }t_data2;
+
+typedef struct t_data3{
+	int	count;
+	int	a;
+	int	num;
+}t_data3;
 
 int		*arguments_scanner(int ac, char **ar);
 void	error_msg(void);
