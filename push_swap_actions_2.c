@@ -6,11 +6,29 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 19:00:32 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 00:28:24 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/03 01:53:10 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	last_finished_check(int **stack, int ***stack_b)
+{
+	int	ndx;
+	int	idx;
+
+	ndx = 0;
+	idx = 1;
+	while (stack[idx] != NULL)
+	{
+		if (stack[ndx][0] < stack[idx++][0])
+			ndx++;
+		else
+			return (1);
+	}
+	free(*stack_b);
+	return (0);
+}
 
 int	searsh_for_num(int **stack_a, int **stack_b)
 {
@@ -34,30 +52,23 @@ int	**sort_action_all(int **st_a, int **st_b)
 
 	st_a[tdm(st_a) - 1][0] = -1;
 	n = 0;
-	while (st_b[0] || finished_check(st_a) == 1)
+	while (st_b[0] || last_finished_check(st_a, &st_b) == 1)
 	{
 		while (st_b[n] && st_a[0][0] - 1 != st_b[n][0])
 			n++;
 		if (searsh_for_num(st_a, st_b) == 0)
-		{
-			st_a = stack_reverse_rotate_2(st_a);
-			write(1, "rra\n", 4);
-		}
+			instruction_rra(&st_a);
 		if (st_b[n] && n > tdm(st_b) / 2 && st_a[0][0] - 1 == st_b[n][0])
 		{
 			while (st_a[0][0] - 1 != st_b[0][0])
 				up_b(&st_a, &st_b);
-			st_a = stack_push_2(st_a, st_b);
-			st_b = stack_pop_2(st_b);
-			write(1, "pa\n", 3);
+			instruction_pa(&st_a, &st_b);
 		}
 		else if (st_b[n] && n <= tdm(st_b) / 2 && st_a[0][0] - 1 == st_b[n][0])
 		{
 			while (st_a[0][0] - 1 != st_b[0][0])
 				down_b(&st_a, &st_b);
-			st_a = stack_push_2(st_a, st_b);
-			st_b = stack_pop_2(st_b);
-			write(1, "pa\n", 3);
+			instruction_pa_2(&st_a, &st_b);
 		}
 		n = 0;
 	}
@@ -83,22 +94,17 @@ int	**first_move_check(int **stack, int min, int max)
 	{	
 		if (stack[size][0] >= min && stack[size][0] <= max)
 			break ;
-		else
-		{
-			size--;
-			count++;
-		}
+		size--;
+		count++;
 	}
-	if (i == count || stack[i][0] == stack[size][0])
-		stack = check_up_or_down(stack, i);
-	else if (i < count)
+	if (i <= count)
 		stack = check_up_or_down(stack, i);
 	else if (count < i)
 		stack = check_up_or_down(stack, size);
 	return (stack);
 }
 
-int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
+int	**sort_stack_for_100(int **stack_a, int **stack_b, int **stack_hold)
 {
 	int	min;
 	int	max;
@@ -118,9 +124,11 @@ int	**sort_stack(int **stack_a, int **stack_b, int **stack_hold)
 			stack_b = check_stack_b(stack_b, mid);
 		}
 		else if (check_min_max(stack_a, min, max) == 1)
-			update_range(stack_a, &max, &min, &mid);
+			update_range_for_100(stack_a, &max, &min, &mid);
 	}
 	stack_a = sort_actions_for_5(stack_a, stack_hold);
 	stack_a = sort_action_all(stack_a, stack_b);
+	stack_a = stack_rotate_2(stack_a);
+	write(1, "ra\n", 3);
 	return (stack_a);
 }
