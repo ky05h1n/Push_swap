@@ -33,7 +33,7 @@ $(NAME): $(SRC)
 bonus : $(BNAME)
 
 $(BNAME): $(BSRC)
-	@gcc $(BSRC) -Wall -Werror -Wextra -g -fsanitize=address -o $(BNAME)
+	@gcc $(BSRC) -Wall -Werror -Wextra -o $(BNAME)
 	@echo "\033[1;32m Push_Swap_Bonus is ready !"
 
 clean :
@@ -47,12 +47,3 @@ fclean :
 		@echo "\033[1;32m File cleaned !"
 
 re : fclean all
-
-push :
-	rm -f $(NAME)
-	rm -f $(BNAME)
-	rm -rf .DS_Store push_swap.dSYM
-	git add .
-	git status
-	git commit -m "Push_swap"
-	git push

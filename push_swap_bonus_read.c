@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 17:25:32 by enja              #+#    #+#             */
-/*   Updated: 2022/07/04 00:16:36 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/04 01:20:35 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,12 @@ int	instructions_check_3(char *buff, int ***stack_a, int ***stack_b)
 		}
 		return (0);
 	}
+	else if (string_cmp(buff, "rrb\n") == 0)
+	{
+		if (stack_a[0][0] != NULL)
+			*stack_b = stack_reverse_rotate_2(*stack_b);
+		return (0);
+	}
 	else if (string_cmp(buff, "pb\n") == 0)
 	{
 		if (stack_a[0][0] != NULL)
@@ -127,6 +133,7 @@ void	read_args(int **stack_a, int **stack_b)
 			sign = instructions_check_3(str, &stack_a, &stack_b);
 		if (sign == 1)
 			instructions_check_4(str, &stack_a, &stack_b);
+		free(str);
 	}
 	if (finished_check(stack_a) == 0 && stack_b[0] == NULL)
 		msg_ok();

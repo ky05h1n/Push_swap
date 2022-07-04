@@ -6,7 +6,7 @@
 /*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:30:16 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 23:54:02 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/04 01:00:08 by enja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 // # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
+# define BUFFER_SIZE 5
 // #endif
 
 int		ft_strlen(char *str);
