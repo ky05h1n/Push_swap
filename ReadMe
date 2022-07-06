@@ -19,8 +19,8 @@ rrb : reverse rotate b - shift down all elements of stack b by 1. The last eleme
 rrr : rra and rrb at the same time.
 
 
-    At the beginning you have two stacks, stack A and stack B, the stack A stores the argument who was given to the exec Push_swap
-File as a random list of numbers.
+    At the beginning you have two stacks, stack A and stack B, the stack A stores the argument who was given to the 
+exec Push_swapFile as a random list of numbers.
 I finished this project using pointers, I know that linked lists will makes it too easy, but I wanted to challenge my self.
 
 How I did it?
