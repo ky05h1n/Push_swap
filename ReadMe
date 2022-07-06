@@ -3,7 +3,7 @@
 
 Project from the cursus of 1337 school (42 Network)
 
-	The goal of the project is to sort a given random numbers
+    The goal of the project is to sort a given random numbers
 but with a set of moves to follow , Only these moves are allowed:
 
 sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
@@ -19,13 +19,13 @@ rrb : reverse rotate b - shift down all elements of stack b by 1. The last eleme
 rrr : rra and rrb at the same time.
 
 
-	At the beginning you have two stacks, stack A and stack B, the stack A stores the argument who was given to the exec Push_swap
+    At the beginning you have two stacks, stack A and stack B, the stack A stores the argument who was given to the exec Push_swap
 File as a random list of numbers.
 I finished this project using pointers, I know that linked lists will makes it too easy, but I wanted to challenge my self.
 
 How I did it?
 
-first i allocate an array of int the size of all numbers of stack A, then start searshing for the smallest number in the stack A 
+    first i allocate an array of int the size of all numbers of stack A, then start searshing for the smallest number in the stack A 
 i locate its place , for example lets say the number -99 is the smalset number in the stack A and his index is 7 on the stack A 
 So lets go into the array that we allocated and lets go to the index 7 then we assign 0 to that, after finishing all the numbers
 We will have our numbers from 0 to the size of stack A in a randomized way like the stack A and that will make it easy for us to sort them 
