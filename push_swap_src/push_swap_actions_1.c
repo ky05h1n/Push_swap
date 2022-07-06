@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_actions_1.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 05:56:39 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 14:29:04 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:26:20 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap_headers/push_swap.h"
 
 int	**sort_action_3_num(int **stack)
 {

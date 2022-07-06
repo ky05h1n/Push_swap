@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus_read.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 17:25:32 by enja              #+#    #+#             */
-/*   Updated: 2022/07/04 01:20:35 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:27:19 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "../push_swap_headers/push_swap_bonus.h"
 
 int	instructions_check_1(char *buff, int ***stack_a, int ***stack_b)
 {

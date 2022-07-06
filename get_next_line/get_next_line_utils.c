@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 00:26:49 by enja              #+#    #+#             */
-/*   Updated: 2022/02/19 00:04:56 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:29:06 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../push_swap_headers/get_next_line.h"
 
 int	check_n(char *last)
 {

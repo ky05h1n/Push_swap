@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_actions_3.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:24:44 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 00:15:10 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:26:31 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap_headers/push_swap.h"
 
 int	**check_stack_b(int **stack_b, int mid)
 {

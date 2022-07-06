@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus_actions.c                          :+:      :+:    :+:   */
+/*   push_swap_instructions_2.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/03 18:11:49 by enja              #+#    #+#             */
-/*   Updated: 2022/07/03 22:00:07 by enja             ###   ########.fr       */
+/*   Created: 2022/07/01 19:12:20 by enja              #+#    #+#             */
+/*   Updated: 2022/07/06 20:26:47 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "../push_swap_headers/push_swap.h"
 
 int	**stack_push_2(int **stack1, int **stack2)
 {
@@ -85,19 +85,6 @@ int	**stack_rotate_2(int **stack)
 	free(stack);
 	stack = handl_stack;
 	return (stack);
-}
-
-void	stack_swap_2(int **stack)
-{
-	int		idx;
-	int		*ptr;
-
-	if (stack[0] == NULL)
-		return ;
-	idx = 0;
-	ptr = stack[idx];
-	stack[idx] = stack[idx + 1];
-	stack[idx + 1] = ptr;
 }
 
 int	**stack_reverse_rotate_2(int **stack)

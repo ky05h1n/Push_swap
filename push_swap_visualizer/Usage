@@ -1,0 +1,7 @@
+TYPE :
+
+	python3 visualizer.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
+
+TO CHANGE THE RANGE :
+
+	change it here : "(-50..50)"

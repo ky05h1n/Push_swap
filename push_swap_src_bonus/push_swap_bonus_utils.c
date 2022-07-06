@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 15:22:38 by enja              #+#    #+#             */
-/*   Updated: 2022/07/04 01:19:53 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:27:30 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "../push_swap_headers/push_swap_bonus.h"
 
 int	string_comp_no_digits(char *str)
 {

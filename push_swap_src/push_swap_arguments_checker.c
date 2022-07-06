@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments_checker.c                                :+:      :+:    :+:   */
+/*   push_swap_arguments_checker.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 14:26:00 by enja              #+#    #+#             */
-/*   Updated: 2022/06/29 17:37:07 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:26:39 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap_headers/push_swap.h"
 
 int	string_comp_no_digits(char *str)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enja <enja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zy0tsh1 <zy0tsh1@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 23:30:16 by enja              #+#    #+#             */
-/*   Updated: 2022/07/04 01:00:08 by enja             ###   ########.fr       */
+/*   Updated: 2022/07/06 20:28:38 by zy0tsh1          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-// # ifndef BUFFER_SIZE
+
 # define BUFFER_SIZE 5
-// #endif
 
 int		ft_strlen(char *str);
 char	*join(char *str, char *buff);
